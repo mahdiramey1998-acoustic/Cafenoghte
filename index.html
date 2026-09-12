@@ -20,12 +20,12 @@
           },
           colors: {
             brand: {
-              gold: '#D4AF37',
-              goldHover: '#c59b27',
-              dark: '#121212',
-              card: '#1c1c1e',
-              cardLight: '#262628',
-              accent: '#8b5a2b'
+              gold: '#E5A93C',
+              goldHover: '#c88f28',
+              dark: '#0c0c0e',
+              card: '#161618',
+              cardLight: '#222225',
+              border: '#2a2a2e'
             }
           }
         }
@@ -35,8 +35,8 @@
 
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #eaeaea;
+      background-color: #0a0a0c;
+      color: #f1f1f1;
     }
     .hide-scrollbar::-webkit-scrollbar {
       display: none;
@@ -46,269 +46,341 @@
       scrollbar-width: none;
     }
     .active-tab {
-      background-color: #D4AF37 !important;
-      color: #121212 !important;
-      font-weight: bold;
+      background-color: #E5A93C !important;
+      color: #0c0c0e !important;
+      box-shadow: 0 4px 14px rgba(229, 169, 60, 0.35);
+      border-color: #E5A93C !important;
     }
   </style>
 </head>
-<body class="font-sans antialiased pb-16 selection:bg-brand-gold selection:text-black">
+<body class="font-sans antialiased pb-20 selection:bg-brand-gold selection:text-black">
 
-  <!-- هدر و معرفی کافه -->
-  <header class="relative bg-gradient-to-b from-stone-900 to-[#121212] pt-8 pb-6 px-4 shadow-xl border-b border-stone-800">
-    <div class="max-w-md mx-auto text-center">
-      <!-- لوگو / آیکون کافه -->
-      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-stone-800 border-2 border-brand-gold/60 mb-3 shadow-lg shadow-black/40">
-        <i class="fa-solid fa-mug-hot text-3xl text-brand-gold"></i>
+  <!-- هدر سینمایی همراه با بک‌گراند محو محیط کافه -->
+  <header class="relative min-h-[350px] flex items-center justify-center overflow-hidden border-b border-brand-border">
+    <!-- عکس بک‌گراند دکور کافه (مستقیم در روت: bg-cafe.jpg) -->
+    <div class="absolute inset-0 bg-cover bg-center scale-105 filter blur-sm opacity-30 transition duration-700"
+         style="background-image: url('bg-cafe.jpg'), url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1200&auto=format&fit=crop');">
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/85 to-[#0a0a0c]"></div>
+
+    <!-- محتوای هدر -->
+    <div class="relative z-10 max-w-md mx-auto text-center px-4 py-8">
+      
+      <!-- لوگوی کافه نقطه (مستقیم در روت: logo.jpg) -->
+      <div class="inline-block relative mb-3">
+        <div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-brand-gold to-stone-600 shadow-2xl shadow-brand-gold/20 mx-auto overflow-hidden">
+          <img src="logo.jpg" 
+               onerror="this.src='https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=300&auto=format&fit=crop'"
+               alt="لوگو کافه نقطه" 
+               class="w-full h-full object-cover rounded-full border-2 border-[#0c0c0e]" />
+        </div>
+        <span class="absolute bottom-1 right-1 w-4 h-4 bg-emerald-500 border-2 border-[#0c0c0e] rounded-full"></span>
       </div>
 
-      <h1 class="text-2xl font-black tracking-tight text-white mb-1">کافه نقطه</h1>
-      <p class="text-xs text-stone-400 font-light tracking-wider mb-3">NOGHTEH COFFEE SHOP</p>
+      <h1 class="text-3xl font-black tracking-tight text-white mb-1">کافه نقطه</h1>
+      <p class="text-xs text-brand-gold tracking-[0.2em] font-medium mb-3">NOGHTEH COFFEE SHOP</p>
 
-      <!-- وضعیت و امتیاز -->
-      <div class="flex items-center justify-center gap-3 text-xs mb-4">
-        <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-950/80 text-emerald-400 border border-emerald-700/40">
+      <!-- بج وضعیت و ساعت -->
+      <div class="flex items-center justify-center gap-2 text-xs mb-5">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-950/90 text-emerald-400 border border-emerald-600/40 text-[11px]">
           <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          باز است · تا ۲۲:۴۵
+          باز است · سرویس‌دهی تا ۲۲:۴۵
         </span>
-        <span class="inline-flex items-center gap-1 text-amber-400 bg-stone-800/80 px-2.5 py-1 rounded-full border border-stone-700">
-          <i class="fa-solid fa-star text-[11px]"></i>
+        <span class="inline-flex items-center gap-1 text-amber-400 bg-stone-900/90 px-3 py-1 rounded-full border border-stone-800 text-[11px]">
+          <i class="fa-solid fa-star text-[10px]"></i>
           <span class="font-bold text-white">5.0</span>
           <span class="text-stone-400">(گوگل)</span>
         </span>
       </div>
 
-      <!-- دکمه‌های اقدام سریع سر میز -->
-      <div class="flex items-center justify-center gap-2">
-        <a href="tel:+989304426862" class="flex items-center gap-2 px-3.5 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-xl text-xs font-medium transition">
+      <!-- دکمه‌های اقدام سریع -->
+      <div class="flex items-center justify-center gap-2 text-xs">
+        <a href="tel:+989304426862" class="flex items-center gap-2 px-4 py-2.5 bg-brand-card/90 hover:bg-brand-cardLight border border-brand-border rounded-xl transition shadow-lg">
           <i class="fa-solid fa-phone text-brand-gold"></i>
           تماس
         </a>
-        <a href="#location" class="flex items-center gap-2 px-3.5 py-2 bg-stone-800 hover:bg-stone-700 border border-stone-700 rounded-xl text-xs font-medium transition">
+        <a href="#location" class="flex items-center gap-2 px-4 py-2.5 bg-brand-card/90 hover:bg-brand-cardLight border border-brand-border rounded-xl transition shadow-lg">
           <i class="fa-solid fa-location-dot text-brand-gold"></i>
           مسیریابی
         </a>
-        <a href="https://www.instagram.com/noghte.cafe.znj/" target="_blank" class="flex items-center gap-2 px-3.5 py-2 bg-gradient-to-r from-purple-700 to-pink-600 hover:opacity-90 rounded-xl text-xs font-medium text-white transition">
-          <i class="fa-brands fa-instagram"></i>
+        <a href="https://www.instagram.com/noghte.cafe.znj/" target="_blank" class="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-pink-600 to-purple-600 hover:opacity-90 rounded-xl text-white font-medium transition shadow-lg">
+          <i class="fa-brands fa-instagram text-base"></i>
           اینستاگرام
         </a>
       </div>
+
     </div>
   </header>
 
   <!-- معرفی کوتاه فضا -->
-  <section class="max-w-md mx-auto px-4 mt-6">
-    <div class="bg-brand-card p-4 rounded-2xl border border-stone-800 text-xs text-stone-300 leading-relaxed flex items-start gap-3 shadow-md">
-      <i class="fa-solid fa-quote-right text-brand-gold text-base mt-0.5"></i>
-      <p>
-        کافه نقطه در دل بوستان سهند زنجان؛ جایی دنج و آرام برای ثبت لحظه‌ها، طعم واقعی قهوه‌های تخصصی، کار، مطالعه و دورهمی‌های دوستانه.
-      </p>
+  <section class="max-w-md mx-auto px-4 -mt-4 relative z-20">
+    <div class="bg-brand-card/95 backdrop-blur-md p-4 rounded-2xl border border-brand-border shadow-2xl">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-brand-gold/10 flex items-center justify-center text-brand-gold shrink-0">
+          <i class="fa-solid fa-leaf text-lg"></i>
+        </div>
+        <div>
+          <h2 class="text-xs font-bold text-white">آرامش در دل بوستان سهند</h2>
+          <p class="text-[11px] text-stone-400 mt-0.5 leading-relaxed">
+            کافه نقطه؛ محفلی دنج برای طعم ناب قهوه دمی، نوشیدنی‌های تازه و دورهمی‌های دلنشین.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- تب‌های دسته‌بندی منو (Sticky) -->
-  <nav class="sticky top-0 z-30 bg-[#0d0d0d]/95 backdrop-blur-md pt-4 pb-2 border-b border-stone-800/80">
-    <div class="max-w-md mx-auto px-4 flex gap-2 overflow-x-auto hide-scrollbar text-xs">
-      <button onclick="filterCategory('all')" id="btn-all" class="category-btn active-tab px-4 py-2 rounded-xl whitespace-nowrap transition bg-brand-card border border-stone-800 text-stone-300">
+  <!-- تب‌های دسته‌بندی استیکی -->
+  <nav class="sticky top-0 z-30 bg-[#0a0a0c]/90 backdrop-blur-md pt-5 pb-3 border-b border-brand-border">
+    <div class="max-w-md mx-auto px-4 flex gap-2 overflow-x-auto hide-scrollbar text-xs font-medium">
+      <button onclick="filterCategory('all')" id="btn-all" class="category-btn active-tab px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
         همه آیتم‌ها
       </button>
-      <button onclick="filterCategory('espresso')" id="btn-espresso" class="category-btn px-4 py-2 rounded-xl whitespace-nowrap transition bg-brand-card border border-stone-800 text-stone-300">
+      <button onclick="filterCategory('espresso')" id="btn-espresso" class="category-btn px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
         اسپرسو بار
       </button>
-      <button onclick="filterCategory('brew')" id="btn-brew" class="category-btn px-4 py-2 rounded-xl whitespace-nowrap transition bg-brand-card border border-stone-800 text-stone-300">
+      <button onclick="filterCategory('brew')" id="btn-brew" class="category-btn px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
         قهوه دمی
       </button>
-      <button onclick="filterCategory('cold')" id="btn-cold" class="category-btn px-4 py-2 rounded-xl whitespace-nowrap transition bg-brand-card border border-stone-800 text-stone-300">
+      <button onclick="filterCategory('cold')" id="btn-cold" class="category-btn px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
         سرد نوش
       </button>
-      <button onclick="filterCategory('cake')" id="btn-cake" class="category-btn px-4 py-2 rounded-xl whitespace-nowrap transition bg-brand-card border border-stone-800 text-stone-300">
+      <button onclick="filterCategory('cake')" id="btn-cake" class="category-btn px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
         کیک و دسر
       </button>
     </div>
   </nav>
 
-  <!-- لیست آیتم‌های منو -->
-  <main class="max-w-md mx-auto px-4 mt-6">
-    <div id="menu-container" class="space-y-3">
+  <!-- منوی عکس‌دار (آدرس عکس‌ها مستقیم کنار فایل index.html) -->
+  <main class="max-w-md mx-auto px-4 mt-5 space-y-3.5" id="menu-container">
 
-      <!-- اسپرسو بار -->
-      <div class="menu-item bg-brand-card p-3.5 rounded-2xl border border-stone-800 flex justify-between items-center transition hover:border-stone-700" data-category="espresso">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="font-bold text-sm text-white">اسپرسو سینگل / دبل</span>
-            <span class="text-[10px] bg-amber-500/20 text-brand-gold px-1.5 py-0.5 rounded-md border border-amber-500/30">محبوب</span>
+    <!-- ۱. اسپرسو -->
+    <div class="menu-item bg-brand-card rounded-2xl p-3 border border-brand-border flex gap-3 items-center transition hover:border-brand-gold/50" data-category="espresso">
+      <img src="espresso.jpg" 
+           onerror="this.src='https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?q=80&w=250&auto=format&fit=crop'"
+           alt="اسپرسو" 
+           class="w-20 h-20 rounded-xl object-cover shrink-0 border border-stone-800" />
+      <div class="flex-1 flex flex-col justify-between h-20 py-0.5">
+        <div>
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-sm text-white">اسپرسو (سینگل / دبل)</h3>
+            <span class="text-[10px] bg-amber-500/20 text-brand-gold px-2 py-0.5 rounded-md font-bold">محبوب</span>
           </div>
-          <p class="text-xs text-stone-400">۱۰۰٪ عربیکا تخصصی / بلند اختصاصی</p>
+          <p class="text-[11px] text-stone-400 mt-1 line-clamp-1">۱۰۰٪ عربیکا تخصصی با عطر و کرمای متراکم</p>
         </div>
-        <div class="text-left font-bold text-brand-gold text-sm whitespace-nowrap">
+        <div class="text-left font-bold text-brand-gold text-sm">
           ۶۵,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
         </div>
       </div>
+    </div>
 
-      <div class="menu-item bg-brand-card p-3.5 rounded-2xl border border-stone-800 flex justify-between items-center transition hover:border-stone-700" data-category="espresso">
-        <div class="space-y-1">
-          <span class="font-bold text-sm text-white">آمریکانو</span>
-          <p class="text-xs text-stone-400">دبل شات اسپرسو + آب داغ</p>
+    <!-- ۲. لاته -->
+    <div class="menu-item bg-brand-card rounded-2xl p-3 border border-brand-border flex gap-3 items-center transition hover:border-brand-gold/50" data-category="espresso">
+      <img src="latte.jpg" 
+           onerror="this.src='https://images.unsplash.com/photo-1577968897966-3d4325b36b61?q=80&w=250&auto=format&fit=crop'"
+           alt="لاته آرت" 
+           class="w-20 h-20 rounded-xl object-cover shrink-0 border border-stone-800" />
+      <div class="flex-1 flex flex-col justify-between h-20 py-0.5">
+        <div>
+          <h3 class="font-bold text-sm text-white">کاپوچینو / لاته آرت</h3>
+          <p class="text-[11px] text-stone-400 mt-1 line-clamp-1">اسپرسو دوبل همراه با فوم ابریشمی شیر</p>
         </div>
-        <div class="text-left font-bold text-brand-gold text-sm whitespace-nowrap">
+        <div class="text-left font-bold text-brand-gold text-sm">
+          ۸۵,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ۳. آمریکانو -->
+    <div class="menu-item bg-brand-card rounded-2xl p-3 border border-brand-border flex gap-3 items-center transition hover:border-brand-gold/50" data-category="espresso">
+      <img src="americano.jpg" 
+           onerror="this.src='https://images.unsplash.com/photo-1551030173-122aabc4489c?q=80&w=250&auto=format&fit=crop'"
+           alt="آمریکانو" 
+           class="w-20 h-20 rounded-xl object-cover shrink-0 border border-stone-800" />
+      <div class="flex-1 flex flex-col justify-between h-20 py-0.5">
+        <div>
+          <h3 class="font-bold text-sm text-white">آمریکانو داغ</h3>
+          <p class="text-[11px] text-stone-400 mt-1 line-clamp-1">ترکیب شات دوبل اسپرسو و آب جوش</p>
+        </div>
+        <div class="text-left font-bold text-brand-gold text-sm">
           ۷۵,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
         </div>
       </div>
+    </div>
 
-      <div class="menu-item bg-brand-card p-3.5 rounded-2xl border border-stone-800 flex justify-between items-center transition hover:border-stone-700" data-category="espresso">
-        <div class="space-y-1">
-          <span class="font-bold text-sm text-white">کاپوچینو / لاته</span>
-          <p class="text-xs text-stone-400">اسپرسو با فوم شیر ابریشمی</p>
-        </div>
-        <div class="text-left font-bold text-brand-gold text-sm whitespace-nowrap">
-          ۸۵,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
-        </div>
-      </div>
-
-      <!-- قهوه دمی -->
-      <div class="menu-item bg-brand-card p-3.5 rounded-2xl border border-stone-800 flex justify-between items-center transition hover:border-stone-700" data-category="brew">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="font-bold text-sm text-white">قهوه V60 دمی</span>
-            <span class="text-[10px] bg-amber-500/20 text-brand-gold px-1.5 py-0.5 rounded-md border border-amber-500/30">تخصصی</span>
+    <!-- ۴. دمی V60 -->
+    <div class="menu-item bg-brand-card rounded-2xl p-3 border border-brand-border flex gap-3 items-center transition hover:border-brand-gold/50" data-category="brew">
+      <img src="v60.jpg" 
+           onerror="this.src='https://images.unsplash.com/photo-1517256064527-09c73fc73e38?q=80&w=250&auto=format&fit=crop'"
+           alt="قهوه V60" 
+           class="w-20 h-20 rounded-xl object-cover shrink-0 border border-stone-800" />
+      <div class="flex-1 flex flex-col justify-between h-20 py-0.5">
+        <div>
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-sm text-white">قهوه دمی V60</h3>
+            <span class="text-[10px] bg-red-500/20 text-red-400 px-2 py-0.5 rounded-md font-bold">تک خاستگاه</span>
           </div>
-          <p class="text-xs text-stone-400">عصاره‌گیری شفاف با دانه‌های تک خاستگاه (Single Origin)</p>
+          <p class="text-[11px] text-stone-400 mt-1 line-clamp-1">عصاره‌گیری چکه‌ای با طعم‌یادهای شفاف</p>
         </div>
-        <div class="text-left font-bold text-brand-gold text-sm whitespace-nowrap">
+        <div class="text-left font-bold text-brand-gold text-sm">
           ۱۱۰,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
         </div>
       </div>
+    </div>
 
-      <div class="menu-item bg-brand-card p-3.5 rounded-2xl border border-stone-800 flex justify-between items-center transition hover:border-stone-700" data-category="brew">
-        <div class="space-y-1">
-          <span class="font-bold text-sm text-white">کمکس (Chemex)</span>
-          <p class="text-xs text-stone-400">طعم ملایم و زلال مناسب دو نفر</p>
+    <!-- ۵. کمکس -->
+    <div class="menu-item bg-brand-card rounded-2xl p-3 border border-brand-border flex gap-3 items-center transition hover:border-brand-gold/50" data-category="brew">
+      <img src="chemex.jpg" 
+           onerror="this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=250&auto=format&fit=crop'"
+           alt="کمکس" 
+           class="w-20 h-20 rounded-xl object-cover shrink-0 border border-stone-800" />
+      <div class="flex-1 flex flex-col justify-between h-20 py-0.5">
+        <div>
+          <h3 class="font-bold text-sm text-white">کمکس (Chemex)</h3>
+          <p class="text-[11px] text-stone-400 mt-1 line-clamp-1">قهوه زلال و سبک مناسب دورهمی دو نفره</p>
         </div>
-        <div class="text-left font-bold text-brand-gold text-sm whitespace-nowrap">
+        <div class="text-left font-bold text-brand-gold text-sm">
           ۱۴۰,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
         </div>
       </div>
+    </div>
 
-      <!-- سرد نوش -->
-      <div class="menu-item bg-brand-card p-3.5 rounded-2xl border border-stone-800 flex justify-between items-center transition hover:border-stone-700" data-category="cold">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="font-bold text-sm text-white">آیس لاته کارامل</span>
-          </div>
-          <p class="text-xs text-stone-400">اسپرسو سرد، شیر، سیروپ کارامل دست‌ساز</p>
+    <!-- ۶. آیس کافی -->
+    <div class="menu-item bg-brand-card rounded-2xl p-3 border border-brand-border flex gap-3 items-center transition hover:border-brand-gold/50" data-category="cold">
+      <img src="iced-coffee.jpg" 
+           onerror="this.src='https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?q=80&w=250&auto=format&fit=crop'"
+           alt="آیس کارامل لاته" 
+           class="w-20 h-20 rounded-xl object-cover shrink-0 border border-stone-800" />
+      <div class="flex-1 flex flex-col justify-between h-20 py-0.5">
+        <div>
+          <h3 class="font-bold text-sm text-white">آیس کارامل ماکیاتو</h3>
+          <p class="text-[11px] text-stone-400 mt-1 line-clamp-1">اسپرسو، شیر سرد، یخ و سیروپ کارامل</p>
         </div>
-        <div class="text-left font-bold text-brand-gold text-sm whitespace-nowrap">
+        <div class="text-left font-bold text-brand-gold text-sm">
           ۹۵,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
         </div>
       </div>
+    </div>
 
-      <div class="menu-item bg-brand-card p-3.5 rounded-2xl border border-stone-800 flex justify-between items-center transition hover:border-stone-700" data-category="cold">
-        <div class="space-y-1">
-          <span class="font-bold text-sm text-white">موهیتو دست‌ساز کافه نقطه</span>
-          <p class="text-xs text-stone-400">نعنا تازه، لیمو تازه، سیروپ بار، سودا</p>
+    <!-- ۷. موهیتو -->
+    <div class="menu-item bg-brand-card rounded-2xl p-3 border border-brand-border flex gap-3 items-center transition hover:border-brand-gold/50" data-category="cold">
+      <img src="mojito.jpg" 
+           onerror="this.src='https://images.unsplash.com/photo-1551538827-9c037cb4f32a?q=80&w=250&auto=format&fit=crop'"
+           alt="موهیتو دست‌ساز" 
+           class="w-20 h-20 rounded-xl object-cover shrink-0 border border-stone-800" />
+      <div class="flex-1 flex flex-col justify-between h-20 py-0.5">
+        <div>
+          <h3 class="font-bold text-sm text-white">موهیتو تازه نقطه</h3>
+          <p class="text-[11px] text-stone-400 mt-1 line-clamp-1">نعنا تازه، لیمو ترش طبیعی و سودای خنک</p>
         </div>
-        <div class="text-left font-bold text-brand-gold text-sm whitespace-nowrap">
+        <div class="text-left font-bold text-brand-gold text-sm">
           ۸۵,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
         </div>
       </div>
+    </div>
 
-      <!-- کیک و دسر -->
-      <div class="menu-item bg-brand-card p-3.5 rounded-2xl border border-stone-800 flex justify-between items-center transition hover:border-stone-700" data-category="cake">
-        <div class="space-y-1">
-          <div class="flex items-center gap-2">
-            <span class="font-bold text-sm text-white">چیزکیک سن سباستین</span>
-            <span class="text-[10px] bg-red-500/20 text-red-400 px-1.5 py-0.5 rounded-md border border-red-500/30">پیشنهاد باریستا</span>
+    <!-- ۸. چیزکیک -->
+    <div class="menu-item bg-brand-card rounded-2xl p-3 border border-brand-border flex gap-3 items-center transition hover:border-brand-gold/50" data-category="cake">
+      <img src="cheesecake.jpg" 
+           onerror="this.src='https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=250&auto=format&fit=crop'"
+           alt="چیزکیک سن سباستین" 
+           class="w-20 h-20 rounded-xl object-cover shrink-0 border border-stone-800" />
+      <div class="flex-1 flex flex-col justify-between h-20 py-0.5">
+        <div>
+          <div class="flex items-center justify-between">
+            <h3 class="font-bold text-sm text-white">چیزکیک سن سباستین</h3>
+            <span class="text-[10px] bg-amber-500/20 text-brand-gold px-2 py-0.5 rounded-md font-bold">ویژه</span>
           </div>
-          <p class="text-xs text-stone-400">سرو همراه با سس شکلات داغ بلژیکی</p>
+          <p class="text-[11px] text-stone-400 mt-1 line-clamp-1">همراه با سس شکلات گرم بلژیکی</p>
         </div>
-        <div class="text-left font-bold text-brand-gold text-sm whitespace-nowrap">
+        <div class="text-left font-bold text-brand-gold text-sm">
           ۱۰۵,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
         </div>
       </div>
-
-      <div class="menu-item bg-brand-card p-3.5 rounded-2xl border border-stone-800 flex justify-between items-center transition hover:border-stone-700" data-category="cake">
-        <div class="space-y-1">
-          <span class="font-bold text-sm text-white">کیک هویج و گردو</span>
-          <p class="text-xs text-stone-400">تازه پخت همراه با کرست خامه‌ای</p>
-        </div>
-        <div class="text-left font-bold text-brand-gold text-sm whitespace-nowrap">
-          ۸۰,۰۰۰ <span class="text-[10px] text-stone-400 font-normal">تومان</span>
-        </div>
-      </div>
-
     </div>
+
   </main>
 
-  <!-- ویژگی‌ها و امکانات فضا -->
-  <section class="max-w-md mx-auto px-4 mt-8">
-    <h3 class="text-sm font-bold text-stone-300 mb-3 flex items-center gap-2">
-      <i class="fa-solid fa-sparkles text-brand-gold"></i>
-      امکانات کافه نقطه
-    </h3>
-    <div class="grid grid-cols-3 gap-2.5 text-center">
-      <div class="bg-brand-card p-3 rounded-xl border border-stone-800">
-        <i class="fa-solid fa-wifi text-brand-gold text-base mb-1"></i>
-        <p class="text-[11px] font-medium text-stone-300">اینترنت پرسرعت</p>
+  <!-- گالری تصاویر فضا (مستقیم در روت: gallery1.jpg و gallery2.jpg) -->
+  <section class="max-w-md mx-auto px-4 mt-10">
+    <div class="flex items-center justify-between mb-3">
+      <h3 class="text-xs font-bold text-white flex items-center gap-1.5">
+        <i class="fa-solid fa-camera-retro text-brand-gold"></i>
+        گالری حس و حال نقطه
+      </h3>
+      <a href="https://www.instagram.com/noghte.cafe.znj/" target="_blank" class="text-[11px] text-brand-gold hover:underline">
+        مشاهده در اینستاگرام <i class="fa-solid fa-arrow-left text-[9px]"></i>
+      </a>
+    </div>
+
+    <div class="grid grid-cols-2 gap-2.5">
+      <div class="rounded-2xl overflow-hidden h-36 border border-brand-border group relative">
+        <img src="gallery1.jpg" 
+             onerror="this.src='https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=400&auto=format&fit=crop'"
+             alt="فضای کافه" 
+             class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
+          <span class="text-[10px] text-stone-200">فضای داخلی و دنج</span>
+        </div>
       </div>
-      <div class="bg-brand-card p-3 rounded-xl border border-stone-800">
-        <i class="fa-solid fa-tree text-brand-gold text-base mb-1"></i>
-        <p class="text-[11px] font-medium text-stone-300">ویو بوستان سهند</p>
-      </div>
-      <div class="bg-brand-card p-3 rounded-xl border border-stone-800">
-        <i class="fa-solid fa-laptop text-brand-gold text-base mb-1"></i>
-        <p class="text-[11px] font-medium text-stone-300">مناسب کار و مطالعه</p>
+
+      <div class="rounded-2xl overflow-hidden h-36 border border-brand-border group relative">
+        <img src="gallery2.jpg" 
+             onerror="this.src='https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=400&auto=format&fit=crop'"
+             alt="عصاره‌گیری قهوه" 
+             class="w-full h-full object-cover group-hover:scale-110 transition duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-2.5">
+          <span class="text-[10px] text-stone-200">هنر بارتندری و قهوه</span>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- اطلاعات تماس و آدرس -->
-  <footer id="location" class="max-w-md mx-auto px-4 mt-8 space-y-4">
-    <div class="bg-brand-card rounded-2xl p-4 border border-stone-800 space-y-3">
+  <!-- آدرس و ساعات کاری -->
+  <footer id="location" class="max-w-md mx-auto px-4 mt-8 space-y-3">
+    <div class="bg-brand-card rounded-2xl p-4 border border-brand-border space-y-3 shadow-xl">
       <h3 class="text-sm font-bold text-white flex items-center gap-2">
-        <i class="fa-solid fa-location-dot text-brand-gold"></i>
-        نشانی و دسترسی
+        <i class="fa-solid fa-map-location-dot text-brand-gold"></i>
+        آدرس و دسترسی
       </h3>
       <p class="text-xs text-stone-300 leading-relaxed">
         زنجان، میدان آزادگان، بوستان سهند، کافه نقطه
       </p>
 
-      <div class="pt-2 border-t border-stone-800 flex justify-between items-center text-xs">
+      <div class="pt-2 border-t border-brand-border flex justify-between items-center text-xs">
         <span class="text-stone-400">ساعت کاری:</span>
-        <span class="font-medium text-stone-200">همه‌روزه تا ۲۲:۴۵ شب</span>
+        <span class="font-medium text-stone-200">همه‌روزه تا ۲۲:۴۵</span>
       </div>
 
       <div class="flex justify-between items-center text-xs">
-        <span class="text-stone-400">شماره تماس:</span>
+        <span class="text-stone-400">تلفن کافه:</span>
         <a href="tel:+989304426862" class="font-bold text-brand-gold dir-ltr">۰۹۳۰ ۴۴۲ ۶۸۶۲</a>
       </div>
 
-      <!-- دکمه‌های نقشه -->
+      <!-- دکمه‌های مسیریابی -->
       <div class="pt-2 grid grid-cols-2 gap-2">
-        <a href="https://maps.google.com/?q=MGW2+JRP,+Zanjan" target="_blank" class="text-center py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-xs font-medium border border-stone-700 transition">
+        <a href="https://maps.google.com/?q=MGW2+JRP,+Zanjan" target="_blank" class="text-center py-2.5 rounded-xl bg-brand-cardLight hover:bg-stone-800 text-xs font-medium border border-stone-700 transition">
           <i class="fa-brands fa-google text-red-400 ml-1"></i> گوگل مپ
         </a>
-        <a href="https://nshn.ir" target="_blank" class="text-center py-2.5 rounded-xl bg-stone-800 hover:bg-stone-700 text-xs font-medium border border-stone-700 transition">
+        <a href="https://nshn.ir" target="_blank" class="text-center py-2.5 rounded-xl bg-brand-cardLight hover:bg-stone-800 text-xs font-medium border border-stone-700 transition">
           <i class="fa-solid fa-map-pin text-blue-400 ml-1"></i> نشان / بلد
         </a>
       </div>
     </div>
 
-    <div class="text-center text-[11px] text-stone-400 pt-3">
-      © تمامی حقوق برای کافه نقطه محفوظ است.
+    <div class="text-center text-[10px] text-stone-500 pt-2">
+      طراحی شده برای کافه نقطه · زنجان
     </div>
   </footer>
 
   <!-- اسکریپت فیلتر منو -->
   <script>
     function filterCategory(category) {
-      // تغییر استایل دکمه‌های تب
       const buttons = document.querySelectorAll('.category-btn');
       buttons.forEach(btn => btn.classList.remove('active-tab'));
       
       const activeBtn = document.getElementById('btn-' + category);
       if (activeBtn) activeBtn.classList.add('active-tab');
 
-      // فیلتر کردن کارت‌های منو
       const items = document.querySelectorAll('.menu-item');
       items.forEach(item => {
         if (category === 'all' || item.dataset.category === category) {
@@ -319,5 +391,6 @@
       });
     }
   </script>
+
 </body>
 </html>
