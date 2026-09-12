@@ -130,24 +130,26 @@
     </div>
   </section>
 
-  <!-- تب‌های دسته‌بندی استیکی -->
-  <nav class="sticky top-0 z-30 bg-[#0a0a0c]/90 backdrop-blur-md pt-5 pb-3 border-b border-brand-border">
-    <div class="max-w-md mx-auto px-4 flex gap-2 overflow-x-auto hide-scrollbar text-xs font-medium">
-      <button onclick="filterCategory('all')" id="btn-all" class="category-btn active-tab px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
-        همه آیتم‌ها
-      </button>
-      <button onclick="filterCategory('espresso')" id="btn-espresso" class="category-btn px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
-        اسپرسو بار
-      </button>
-      <button onclick="filterCategory('brew')" id="btn-brew" class="category-btn px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
-        قهوه دمی
-      </button>
-      <button onclick="filterCategory('cold')" id="btn-cold" class="category-btn px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
-        سرد نوش
-      </button>
-      <button onclick="filterCategory('cake')" id="btn-cake" class="category-btn px-4 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
-        کیک و دسر
-      </button>
+<!-- تب‌های دسته‌بندی استیکی (اصلاح‌شده بدون بیرون‌زدگی) -->
+  <nav class="sticky top-0 z-30 bg-[#0a0a0c]/95 backdrop-blur-md py-3 border-b border-brand-border">
+    <div class="max-w-md mx-auto px-4">
+      <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar text-xs font-medium pe-4" style="-webkit-overflow-scrolling: touch;">
+        <button onclick="filterCategory('all')" id="btn-all" class="category-btn active-tab shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
+          همه آیتم‌ها
+        </button>
+        <button onclick="filterCategory('espresso')" id="btn-espresso" class="category-btn shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
+          اسپرسو بار
+        </button>
+        <button onclick="filterCategory('brew')" id="btn-brew" class="category-btn shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
+          قهوه دمی
+        </button>
+        <button onclick="filterCategory('cold')" id="btn-cold" class="category-btn shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
+          سرد نوش
+        </button>
+        <button onclick="filterCategory('cake')" id="btn-cake" class="category-btn shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
+          کیک و دسر
+        </button>
+      </div>
     </div>
   </nav>
 
