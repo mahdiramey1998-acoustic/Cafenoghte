@@ -130,23 +130,23 @@
     </div>
   </section>
 
-<!-- تب‌های دسته‌بندی استیکی (اصلاح‌شده بدون بیرون‌زدگی) -->
+<!-- تب‌های دسته‌بندی منو (فیکس و هم‌تراز با کارت‌ها) -->
   <nav class="sticky top-0 z-30 bg-[#0a0a0c]/95 backdrop-blur-md py-3 border-b border-brand-border">
     <div class="max-w-md mx-auto px-4">
-      <div class="flex items-center gap-2 overflow-x-auto hide-scrollbar text-xs font-medium pe-4" style="-webkit-overflow-scrolling: touch;">
-        <button onclick="filterCategory('all')" id="btn-all" class="category-btn active-tab shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
-          همه آیتم‌ها
+      <div class="grid grid-cols-5 gap-1.5 text-[11px] sm:text-xs font-medium text-center">
+        <button onclick="filterCategory('all')" id="btn-all" class="category-btn active-tab py-2.5 px-1 rounded-xl transition bg-brand-card border border-brand-border text-stone-300">
+          همه
         </button>
-        <button onclick="filterCategory('espresso')" id="btn-espresso" class="category-btn shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
-          اسپرسو بار
+        <button onclick="filterCategory('espresso')" id="btn-espresso" class="category-btn py-2.5 px-1 rounded-xl transition bg-brand-card border border-brand-border text-stone-300">
+          اسپرسو
         </button>
-        <button onclick="filterCategory('brew')" id="btn-brew" class="category-btn shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
+        <button onclick="filterCategory('brew')" id="btn-brew" class="category-btn py-2.5 px-1 rounded-xl transition bg-brand-card border border-brand-border text-stone-300">
           قهوه دمی
         </button>
-        <button onclick="filterCategory('cold')" id="btn-cold" class="category-btn shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
+        <button onclick="filterCategory('cold')" id="btn-cold" class="category-btn py-2.5 px-1 rounded-xl transition bg-brand-card border border-brand-border text-stone-300">
           سرد نوش
         </button>
-        <button onclick="filterCategory('cake')" id="btn-cake" class="category-btn shrink-0 px-3.5 py-2.5 rounded-xl whitespace-nowrap transition bg-brand-card border border-brand-border text-stone-300">
+        <button onclick="filterCategory('cake')" id="btn-cake" class="category-btn py-2.5 px-1 rounded-xl transition bg-brand-card border border-brand-border text-stone-300">
           کیک و دسر
         </button>
       </div>
